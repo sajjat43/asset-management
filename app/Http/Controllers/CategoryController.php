@@ -8,15 +8,18 @@ use App\Http\Controllers\CategoryController;
 
 class CategoryController extends Controller
 {
+    //Category_list--------
     public function categoryList(){
         $categories=Category::all();
     //    dd($categories);
         return view('asset.category_list',compact('categories'));
         }
+    //Category_of_asset---------
     public function asset_category()
     {
         return view('asset.asset_category');
     }
+    //Create_category---------
     public function category_create(Request $request)
     {
             // dd($request->all());
@@ -32,7 +35,7 @@ class CategoryController extends Controller
         ]);
         return redirect()->back()->with('success','Category Created Successfully.');
     }
-   
+   //Delete_category-----------
     public function deleteCategory($category_id)
     {
         Category::find($category_id)->delete();

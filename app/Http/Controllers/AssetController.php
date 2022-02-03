@@ -9,11 +9,13 @@ use App\Http\Controllers\AssetController;
 
 class AssetController extends Controller
 {
+    //Create_asset------
     public function CreateAsset()
     {
         $categories=Category::all();
         return view('asset.create_asset',compact('categories'));
     }
+    //Asset_list-------
     public function Search_AssetList()
     {
         $key=null;
@@ -31,14 +33,14 @@ class AssetController extends Controller
      
     }
   
-    
+    //Single_asset_view-----------
     public function viewasset($asset_id)
     {
         $assetlist = asset::find($asset_id);
         return view('asset.asset_view',compact('assetlist'));
     }
 
-    
+    //Asset_Store---------
     public function AssetStore(Request $request)
     {
         // dd($request->all());
@@ -73,14 +75,14 @@ class AssetController extends Controller
         ]);
         return redirect()->back()->with('success', 'Asset Created Successfully');
     }
-   
+   //Asset_Delete----------
     public function deleteasset($asset_id)
     {
         Asset::find($asset_id)->delete();
         return redirect()->back()->with('sucecess', 'asset has beeen Deleted Successfully');
     }
   
-
+//Asset_update----------
     public function Asset_update(Request $request,$asset_id)
     {
         $image_name=null;

@@ -94,19 +94,19 @@
                 <div class="icon">
                     <i class="fa fa-money" aria-hidden="true"></i>
                 </div>
-                <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{route('asset.list')}}" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-sm-6 col-lg-3">
             <div class="card-box" style="background-color:rgb(22, 175, 129);">
                 <div class="inner">
-                    <h3>  {{$count['Total Asset Quantity']}} </h3>
-                    <p> Total Asset Quantity </p>
+                    <h3>  {{$count['Damage Asset']}} </h3>
+                    <p> Total Damage Asset </p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-money" aria-hidden="true"></i>
                 </div>
-                <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{route('damage.list')}}" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-sm-6 col-lg-3">
@@ -118,7 +118,7 @@
                 <div class="icon">
                     <i class="fa fa-user-plus" aria-hidden="true"></i>
                 </div>
-                <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{route('transfer.list')}}" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>

@@ -1,4 +1,5 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
+  @if(auth()->user()->role=='admin')
     <div class="user-profile">
       <div class="user-image">
         <img src="{{url('Backend/images/faces/face29.png')}}">
@@ -10,7 +11,7 @@
           Site Admin
       </div>
     </div>
-
+  @endif
     <ul class="nav">
       @if(auth()->user()->role=='admin')
       <li class="nav-item">

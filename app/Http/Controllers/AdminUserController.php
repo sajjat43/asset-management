@@ -8,21 +8,21 @@ use App\Http\Controllers\AdminUserController;
 
 class AdminUserController extends Controller
 {
-    
+    //Log_out---------
     public function logout()
     {
         $user=Auth::user();
         Auth::logout($user);
         return redirect()->route('admin.login')->with('logoutmessage','Logged Out');
     }
-
+//Log_in--------
     public function login()
     {
         
         return view('admin.fixed.login');
         
     }
-
+//Log_in_Authentication-----------------
     public function LoginView(Request $req)
     {
         // @dd($req->all());

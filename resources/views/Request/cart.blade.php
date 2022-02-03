@@ -6,7 +6,7 @@
         <h1> my cart ({{session()->has('cart') ? count(session()->get('cart')):0}}) item.</h1>
 
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">Id</th>
         <th scope="col">asset name</th>
         <th scope="col">quantity</th>
         

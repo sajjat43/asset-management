@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<h1>Distribution History</h1>
+<h1>Damage List</h1>
 @if(session()->has('success'))
 <p class="alert alert-success">
     {{session()->get('success')}}

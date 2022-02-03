@@ -31,22 +31,6 @@ class AdminController extends Controller
         return view('admin.pages.report',compact('request'));
     }
     public function ViewReport(Request $request){
-
-        // $RequestAsset=[];
-        // if(request()->has('fromdate'))
-        // {
-        //     $from_date=request()->fromdate;
-        //     $to_date=request()->todate;
-
-
-        // $reports=Report::where('status','1')
-        // ->whereDate('created_at','>=',$from_date)
-        // ->whereDate('created_at','<=',$to_date)
-        // ->get();
-        // }
-
-
-        // return view('admin.pages.report');
             $request->validate([
                 'from' => 'required',
                 'to' => 'required|date|after_or_equal:from',
@@ -56,17 +40,15 @@ class AdminController extends Controller
             $to = Carbon::parse($request->to)->addDay();
     
             $request=RequestDetails::whereBetween('created_at',[$from,$to])->get();
-       
-    
-    
             return view('admin.pages.report',compact('request'));
-    
         }
+
+    //Dashboard----
         public function Dashboard()
         {
             $count['Employee']=User::all()->count();
         $count['Asset']=Asset::all()->count();
-        $count['Total Asset Quantity']=Asset::all('quantity')->count();
+        $count['Damage Asset']=RequestDetails::where('status','damage')->count();
         $count['Distributed Asset']=RequestDetails::where('status','approved')->count();
 
         return view('admin.fixed.Dashboard',compact('count'));

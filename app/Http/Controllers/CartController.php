@@ -79,6 +79,8 @@ class CartController extends Controller
         $carts = session()->get('cart');
         return view('request.cart', compact('carts'));
     }
+
+    //Clear_cart--------
     public function clearcart()
     {
         session()->forget('cart');

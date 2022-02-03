@@ -12,11 +12,13 @@ class EmployeeController extends Controller
 
 {
    
-
+    //Create_employee----------
     public function CreateEmployee()
     {
         return view('employee.create_employee');
     }
+
+    //Employee_list-----------
     public function EmployeeList()
     {
         $key=null;
@@ -31,7 +33,7 @@ class EmployeeController extends Controller
         $user = User::all();
         return view ('employee.employee_list', compact('user'));
     }
-  
+  //Employee_store---------
     public function userstore(Request $request)
     {
 
@@ -73,17 +75,20 @@ class EmployeeController extends Controller
         ]);
         return redirect()->back()->with('success', 'Employee Created Successfully');
 }
+//For_single_employee_view
         public function viewemployee($employee_id)
         {
             $user= User::find($employee_id);
             return view('employee.employee_view',compact('user'));
 
         }
+//Delete_employee------------
         public function deleteemployee($employee_id)
         {
             User::find($employee_id)->delete();
             return redirect()->back()->with('sucecess', 'Employee has beeen Deleted Successfully');
         }
+//Employee_update--------
         public function employee_update(Request $request,$user_id)
         {
             $image_name=null;
@@ -117,6 +122,7 @@ class EmployeeController extends Controller
 $user=User::find($user_id);
 return view('employee.employee_update', compact('user'));
     }
+//Employee_profile----------
     public function employeeProfile()
         {
             
@@ -124,12 +130,26 @@ return view('employee.employee_update', compact('user'));
             return view('employee.employeeProfile',compact('user'));
 
         }
-        public function myAsset(Request $request)
-    {
+    //     public function myAsset(Request $request)
+    // {
      
-            $requests=RequestDetails::where('user_id',auth()->user()->id)->orderBy('id','desc')->get();
+    //         $requests=RequestDetails::where('user_id',auth()->user()->id)->orderBy('id','desc')->get();
         
       
+    //     return view('employee.myAsset',compact('requests'));
+    // }
+
+    //My_asset_view-----------
+    public function myAsset(Request $request)
+    {
+        // $requests=RequestDetails::where('user_id',auth()->user()->id)->orwhere('status','approved')->orWhere('status','damage')->orderBy('id','desc')->get();
+        if(auth()->user()->role=='user')
+        {
+            $requests=RequestDetails::where('status','approved')->orWhere('status','damage')->orderBy('id','desc')->get();
+        }else{
+            $requests=RequestDetails::where('status','approved')->orWhere('status','damage')->orderBy('id','desc')
+            ->where('request_id',auth()->user()->id)->get();
+        }
         return view('employee.myAsset',compact('requests'));
     }
-} 
+}
