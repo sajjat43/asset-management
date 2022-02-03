@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Asset;
 use App\Models\Report;
 use Illuminate\Http\Request;
 use App\Models\RequestDetails;
 use App\Http\Controllers\AdminController;
-use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -59,6 +61,15 @@ class AdminController extends Controller
     
             return view('admin.pages.report',compact('request'));
     
+        }
+        public function Dashboard()
+        {
+            $count['Employee']=User::all()->count();
+        $count['Asset']=Asset::all()->count();
+        $count['Total Asset Quantity']=Asset::all('quantity')->count();
+        $count['Distributed Asset']=RequestDetails::where('status','approved')->count();
+
+        return view('admin.fixed.Dashboard',compact('count'));
         }
     }
 

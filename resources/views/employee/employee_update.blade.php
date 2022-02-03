@@ -3,7 +3,7 @@
 
 
     <div>
-        <h1>Fill up this form for create new employee</h1>
+        <h1>Fill up this form for Update employee</h1>
         <hr>
         @if(session()->has('success'))
         <p class="alert alert-success">

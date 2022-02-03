@@ -16,6 +16,7 @@ class CreateRequestDetailsTable extends Migration
         Schema::create('request_details', function (Blueprint $table) {
             $table->id();
             $table->integer('request_id');
+            $table->integer('user_id');
             $table->integer('asset_id');
             $table->integer('quantity');
             $table->string('status')->default('pending');

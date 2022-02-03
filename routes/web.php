@@ -40,7 +40,9 @@ Route::get('/checkout',[RequestController::class,'checkout'])->name('cart.checko
 
 Route::get('Request/Asset/list',[RequestController::class,'assetRequestHistory'])->name('requestAsset.list');
 Route::get('/Request/asset/list/{id}',[RequestController:: class,'viewRequestAsset'])->name('viewRequest.asset');
-
+//Damage_asset
+Route::get('/damage/{id}',[RequestController::class,'damage'])->name('admin.asset.damage');
+//employee_asset
 
 
 
@@ -60,6 +62,7 @@ Route::get('/manage/asset', [AdminController::class, 'ManageAsset'])->name('mana
 Route::get('/manage/ request', [AdminController::class, 'ManageRequest'])->name('manage. request');
 Route::get('/report', [AdminController::class, 'Report'])->name('admin.report');
 Route::post('/report/search', [AdminController::class, 'ViewReport'])->name('admin.report.search');
+Route::get('/Dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard');
 
 // //for EmployeeController
 Route::get('/create/employee', [EmployeeController::class, 'CreateEmployee'])->name('create.employee');
@@ -73,6 +76,7 @@ Route::get('/employee/update/{user_id}',[EmployeeController::class,'employee_edi
 // //for EmployeeList
 Route::get('/employee/list',[EmployeeController:: class,'EmployeeList'])->name('employee.list');
 Route::post('/employee/store', [EmployeeController:: class, 'userstore'])->name('employee.store');
+Route::get('myAsset/list',[EmployeeController::class,'myAsset'])->name('myAsset.list');
 
 // //for AssetController
 Route::get('/create/asset', [AssetController::class, 'Createasset'])->name('create.asset');
@@ -97,7 +101,13 @@ Route::get('/invoice/{id}',[RequestController:: class,'invoice'])->name('request
 Route::get('request/cancel/{id}',[RequestController::class,'requestCancel'])->name('admin.request.cancel');
 Route::get('request/approve/{id}',[RequestController::class,'requestApprove'])->name('admin.request.approve');
 Route::get('reject/list',[RequestController::class,'rejectList'])->name('reject.list');
+
+//transfer list
 Route::get('transfer/list',[RequestController::class,'transferList'])->name('transfer.list');
+
+//damage list
+Route::get('damage/list',[RequestController::class,'damageList'])->name('damage.list');
+
 
 //category
 Route::get('/category/create',[CategoryController::class,'asset_category'])->name('asset.category');

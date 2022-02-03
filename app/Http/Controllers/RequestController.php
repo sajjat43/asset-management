@@ -31,6 +31,7 @@ class RequestController extends Controller
             //    dd($cart);
 
                 RequestDetails::create([
+                    'user_id'=>$request->id,
                     'request_id'=>$request->id,
                     'asset_id'=>$cart['asset_id'],
                     // 'asset_name'=>$cart['asset_name'],
@@ -145,4 +146,25 @@ $requests= RequestAsset::with('user','details')->where('id',$id)->first();
 return view('request.viewRequestAsset',compact('requests'));
 }
 
+public function damage($id){
+    $request=RequestDetails::find($id)->update([
+        'status'=>'damage'
+    ]);
+
+    return redirect()->back();
+}
+public function damageList()
+    {
+     
+        if(auth()->user()->role=='admin')
+        {
+            $requests=RequestDetails::where('status','damage')->orderBy('id','desc')->get();
+        }else{
+            $requests=RequestDetails::where('status','damage')->orderBy('id','desc')
+            ->where('request_id',auth()->user()->id)->get();
+        }
+        
+      
+        return view('request.damage_asset',compact('requests'));
+    }
 }

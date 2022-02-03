@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use App\Models\RequestDetails;
 use App\Http\Controllers\EmployeeController;
 
 class EmployeeController extends Controller
@@ -123,4 +124,12 @@ return view('employee.employee_update', compact('user'));
             return view('employee.employeeProfile',compact('user'));
 
         }
-}
+        public function myAsset(Request $request)
+    {
+     
+            $requests=RequestDetails::where('user_id',auth()->user()->id)->orderBy('id','desc')->get();
+        
+      
+        return view('employee.myAsset',compact('requests'));
+    }
+} 

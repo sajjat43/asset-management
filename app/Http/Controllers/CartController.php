@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RequestAsset;
 use App\Models\Asset;
+use App\Models\RequestAsset;
 use Illuminate\Http\Request;
+use App\Models\RequestDetails;
 use Illuminate\Routing\Controller;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -23,9 +24,19 @@ class CartController extends Controller
     public function Cart($id)
     {
         $asset = Asset::find($id);
+
+        $alreadyRequested = RequestDetails::where('asset_id',$id)->first();
+     
+
+        // if ($alreadyRequested) {
+        //     return redirect()->back()->with('error', 'Already you have this asset');
+        // }
+
         if (!$asset) {
             return redirect()->back()->with('error', 'no asset found');
         }
+
+
         $cartExist = session()->get('cart');
 
         if (!$cartExist) {

@@ -12,6 +12,14 @@
     </div>
 
     <ul class="nav">
+      @if(auth()->user()->role=='admin')
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.dashboard')}}">
+          <i class="icon-file menu-icon"></i>
+          <span class="menu-title">Dashboard</span>
+        </a>
+      </li>
+      @endif
       @if(auth()->user()->role=='user')
       <li class="nav-item">
         <a class="nav-link" href="{{route('asset.cart')}}">
@@ -77,7 +85,7 @@
       <li class="nav-item">
         <a class="nav-link" href="{{route('transfer.list')}}">
           <i class="icon-file menu-icon"></i>
-          <span class="menu-title">Asset Distribution History</span>
+          <span class="menu-title">Asset Distribution List</span>
         </a>
       </li>
       @endif
@@ -91,6 +99,14 @@
       @endif
       @if(auth()->user()->role=='admin')
       <li class="nav-item">
+        <a class="nav-link" href="{{route('damage.list')}}">
+          <i class="icon-file menu-icon"></i>
+          <span class="menu-title">Damage Asset List</span>
+        </a>
+      </li>
+      @endif
+      @if(auth()->user()->role=='admin')
+      <li class="nav-item">
         <a class="nav-link" href="{{route('admin.report')}}">
           <i class="icon-file menu-icon"></i>
           <span class="menu-title">Report</span>
@@ -99,7 +115,7 @@
       @endif
       @if(auth()->user()->role=='user')
       <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{route('myAsset.list')}}">
           <i class="icon-file menu-icon"></i>
           <span class="menu-title">My Asset</span>
         </a>

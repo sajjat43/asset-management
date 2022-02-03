@@ -17,8 +17,6 @@ class CreateRequestsTable extends Migration
        
             $table->id();
             $table->integer('user_id');
-            // $table->string('asset_id');
-            // $table->integer('asset_qty');
             $table->string('status')->default('pending');
             $table->timestamps();
         });

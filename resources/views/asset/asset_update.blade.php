@@ -37,7 +37,10 @@
           <label for="exampleFormControlInput1">Asset Name</label>
           <input value="{{$asset->name}}" type="name" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Enter Asset Name">
         </div>
-        
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Asset Category</label>
+          <input value="{{$asset->cname}}" type="text" name="Category" class="form-control" id="exampleFormControlInput1" placeholder="Asset category">
+        </div>
        
         <div class="form-group">
           <label for="exampleFormControlInput1">Asset Quantity</label>
@@ -50,8 +53,8 @@
           <input value="{{$asset->details}}" type="text" name="details" class="form-control" id="exampleFormControlInput1" placeholder="details">
         </div>
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Asset Image</label>
-          <input value="{{url('/uploads/assets/'.$asset->image)}}" name="asset_image" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <label for="inputImage"><h5> Asset Image</h5></label>
+          <input value="{{url('/uploads/assets/'.$asset->image)}}" type="file" name='asset_image' class="form-control-file" id="inputImage">
       </div>
         <button type="submit" class="btn btn-primary">submit</button>
       </form>
