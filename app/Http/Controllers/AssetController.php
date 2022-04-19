@@ -16,14 +16,14 @@ class AssetController extends Controller
         return view('asset.create_asset',compact('categories'));
     }
     //Asset_list-------
-    public function Search_AssetList()
+    public function Search_AssetList(Request $request)
     {
         $key=null;
         if(request()->search){
             $key=request()->search;
             $assetlist = Asset::  where('name','LIKE','%'.$key.'%')
            
-                ->orWhere('category','LIKE','%'.$key.'%')
+                ->orWhere('cname','LIKE','%'.$key.'%')
                 ->get();
             return view('asset.asset_list',compact('assetlist','key'));
         }

@@ -53,6 +53,10 @@ class AdminController extends Controller
 
         return view('admin.fixed.Dashboard',compact('count'));
         }
-    }
+        // Mail Server
+        
+
+}
+
 
 

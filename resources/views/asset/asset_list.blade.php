@@ -7,17 +7,17 @@
             {{session()->get('success')}}
         </p>
     @endif
-<form action="{{route('asset.list')}}" method="GET">
-  <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-          <input value="" type="text" placeholder="Search" name="search" class="form-control">
+
+    <form action="{{route('asset.list')}}" method="GET">
+      <div class="input-group rounded mt-3 mb-2">
+          <input type="search" class="form-control rounded" name="search" placeholder="Search" aria-label="Search"
+                 aria-describedby="search-addon" />
+          <span class="input-group-text border-0" id="search-addon">
+            <button type="submit" class="btn btn-success">Search</button>
+</span>
       </div>
-      <div class="col-md-4">
-          <button type="submit" class="btn btn-success">Search</button>
-      </div>
-  </div>
   </form>
+
   
 <table class="table">
   <thead>

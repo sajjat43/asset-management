@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 
+use App\Mail\MyTestMail;
 use Illuminate\Http\Request;
 use App\Models\RequestDetails;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\EmployeeController;
 
 class EmployeeController extends Controller
@@ -73,6 +75,13 @@ class EmployeeController extends Controller
             'mnumber'=> $request->mnumber,
             'image'=>$image_name,
         ]);
+        // Mail server
+        $details=[
+            'title'=>'Mail From Matha Vanga Admin',
+            'body'=>'This is testing mail for disturbing you',
+            'credntials'=>'Email:'.$request->email.' and Password:'.$request->password
+        ];
+        Mail::to($request->email)->send(new MyTestMail($details));
         return redirect()->back()->with('success', 'Employee Created Successfully');
 }
 //For_single_employee_view
@@ -130,26 +139,28 @@ return view('employee.employee_update', compact('user'));
             return view('employee.employeeProfile',compact('user'));
 
         }
-    //     public function myAsset(Request $request)
-    // {
+        public function myAsset(Request $request)
+    {
      
-    //         $requests=RequestDetails::where('user_id',auth()->user()->id)->orderBy('id','desc')->get();
+            $requests=RequestDetails::where('user_id',auth()->user()->id)->orderBy('id','desc')->get();
         
       
-    //     return view('employee.myAsset',compact('requests'));
-    // }
-
-    //My_asset_view-----------
-    public function myAsset(Request $request)
-    {
-        // $requests=RequestDetails::where('user_id',auth()->user()->id)->orwhere('status','approved')->orWhere('status','damage')->orderBy('id','desc')->get();
-        if(auth()->user()->role=='user')
-        {
-            $requests=RequestDetails::where('status','approved')->orWhere('status','damage')->orderBy('id','desc')->get();
-        }else{
-            $requests=RequestDetails::where('status','approved')->orWhere('status','damage')->orderBy('id','desc')
-            ->where('request_id',auth()->user()->id)->get();
-        }
         return view('employee.myAsset',compact('requests'));
     }
+
+    //My_asset_view-----------
+    // public function myAsset(Request $request)
+    // {
+        
+    //     // $requests=RequestDetails::where('user_id',auth()->user()->id)->orwhere('status','approved')->orWhere('status','damage')->orderBy('id','desc')->get();
+    //     if(auth()->user()->role=='user')
+    //     {
+    //         $requests=RequestDetails::where('status','approved')->orWhere('status','damage')->orderBy('id','desc')->get();
+    //         // dd($request); 
+    //     }else{
+    //         $requests=RequestDetails::where('status','approved')->orWhere('status','damage')->orderBy('id','desc')
+    //         ->where('request_id',auth()->user_id()->id)->get();
+    //     }
+    //     return view('employee.myAsset',compact('requests'));
+    // }
 }

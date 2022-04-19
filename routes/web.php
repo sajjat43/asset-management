@@ -40,8 +40,7 @@ Route::get('/checkout',[RequestController::class,'checkout'])->name('cart.checko
 
 Route::get('Request/Asset/list',[RequestController::class,'assetRequestHistory'])->name('requestAsset.list');
 Route::get('/Request/asset/list/{id}',[RequestController:: class,'viewRequestAsset'])->name('viewRequest.asset');
-//Damage_asset
-Route::get('/damage/{id}',[RequestController::class,'damage'])->name('admin.asset.damage');
+
 //employee_asset
 
 
@@ -101,12 +100,15 @@ Route::get('/invoice/{id}',[RequestController:: class,'invoice'])->name('request
 Route::get('request/cancel/{id}',[RequestController::class,'requestCancel'])->name('admin.request.cancel');
 Route::get('request/approve/{id}',[RequestController::class,'requestApprove'])->name('admin.request.approve');
 Route::get('reject/list',[RequestController::class,'rejectList'])->name('reject.list');
+Route::get('damage/list/Search',[RequestController::class,'ViewDamage'])->name('damage.list.search');
 
 //transfer list
 Route::get('transfer/list',[RequestController::class,'transferList'])->name('transfer.list');
 
 //damage list
 Route::get('damage/list',[RequestController::class,'damageList'])->name('damage.list');
+//Damage_asset
+Route::get('/damage/{id}',[RequestController::class,'damage'])->name('admin.asset.damage');
 
 
 //category

@@ -37,9 +37,17 @@
           <label for="exampleFormControlInput1">Asset Name</label>
           <input value="{{$asset->name}}" type="name" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Enter Asset Name">
         </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
           <label for="exampleFormControlInput1">Asset Category</label>
-          <input value="{{$asset->cname}}" type="text" name="Category" class="form-control" id="exampleFormControlInput1" placeholder="Asset category">
+          <input value="{{$asset->cname}}" type="te" name="Category" class="form-control" id="exampleFormControlInput1" placeholder="Asset category">
+        </div> --}}
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">asset Category</label>
+          <select name="Cname" class="form-control" id="exampleFormControlSelect1">
+   
+            <option value="{{$asset->Cname}}">{{$asset->Cname}}</option>
+        
+          </select>
         </div>
        
         <div class="form-group">

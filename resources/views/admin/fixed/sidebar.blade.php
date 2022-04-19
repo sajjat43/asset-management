@@ -86,7 +86,15 @@
       <li class="nav-item">
         <a class="nav-link" href="{{route('transfer.list')}}">
           <i class="icon-file menu-icon"></i>
-          <span class="menu-title">Asset Distribution List</span>
+          <span class="menu-title">Distribution List</span>
+        </a>
+      </li>
+      @endif
+      @if(auth()->user()->role=='user')
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('myAsset.list')}}">
+          <i class="icon-file menu-icon"></i>
+          <span class="menu-title">My Asset</span>
         </a>
       </li>
       @endif
@@ -114,14 +122,7 @@
         </a>
       </li>
       @endif
-      @if(auth()->user()->role=='user')
-      <li class="nav-item">
-        <a class="nav-link" href="{{route('myAsset.list')}}">
-          <i class="icon-file menu-icon"></i>
-          <span class="menu-title">My Asset</span>
-        </a>
-      </li>
-      @endif
+     
 
       <li class="nav-item">
         <a class="nav-link" href="pages/charts/chartjs.html">

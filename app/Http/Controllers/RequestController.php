@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\RequestAsset;
-use App\Models\RequestDetails;
 use Illuminate\Http\Request;
+use App\Models\RequestDetails;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\RequestController;
 
@@ -31,7 +32,7 @@ class RequestController extends Controller
             //    dd($cart);
 
                 RequestDetails::create([
-                    'user_id'=>$request->id,
+                    'user_id'=>auth()->user()->id,
                     'request_id'=>$request->id,
                     'asset_id'=>$cart['asset_id'],
                     // 'asset_name'=>$cart['asset_name'],
@@ -151,17 +152,25 @@ public function damage($id){
     return redirect()->back();
 }
 //Damage_list------------
-public function damageList()
+public function damageList(Request $request)
 
     { 
         if(auth()->user()->role=='admin')
         {
             $requests=RequestDetails::where('status','damage')->orderBy('id','desc')->get();
-        }else{
-            $requests=RequestDetails::where('status','damage')->orderBy('id','desc')
-            ->where('request_id',auth()->user()->id)->get();
+        
         }
+        
+        // $request->validate([
+        //     'from' => 'required',
+        //     'to' => 'required|date|after_or_equal:from',
+        // ]);
+
+        // $from = Carbon::parse($reques t->from);
+        // $to = Carbon::parse($request->to)->addDay();
+        // $request=RequestDetails::whereBetween('created_at',[$from,$to])->get();
         return view('request.damage_asset',compact('requests'));
     }
+    
     
 }

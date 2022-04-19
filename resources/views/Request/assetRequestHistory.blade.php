@@ -7,7 +7,7 @@
 </p>
 @endif
 <form action="{{route('requestAsset.list')}}" method="GET">
-<div class="row">
+{{-- <div class="row">
 <div class="col-md-4"></div>
 <div class="col-md-4">
   <input value="" type="text" placeholder="Search" name="search" class="form-control">
@@ -15,7 +15,7 @@
 <div class="col-md-4">
   <button type="submit" class="btn btn-success">Search</button>
 </div>
-</div>
+</div> --}}
 </form>
 <style>
   th{
