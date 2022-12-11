@@ -77,7 +77,7 @@ class CartController extends Controller
 
     {
         $carts = session()->get('cart');
-        return view('request.cart', compact('carts'));
+        return view('Request.cart', compact('carts'));
     }
 
     //Clear_cart--------
