@@ -70,11 +70,11 @@
 
                                     <td>
          
-                                        {{-- @if($request->status =='approved')
+                                         @if($request->status =='approved')
                                         <a href="{{route('admin.request.cancel',$request->id)}}" class="btn btn-danger">Cancel</a>
                                         @elseif($request->status =='pending')
                                         <a href="{{route('admin.request.approve',$request->id)}}" class="btn btn-success">Approve</a>
-                                        @endif --}}
+                                        @endif 
                                            
                                     </td>
                                     </tr>

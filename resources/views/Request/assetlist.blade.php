@@ -46,8 +46,8 @@
       
       <td>
         <a href="{{route('view.asset',  $asset->id)}}"class="btn btn-info">View</a>
-       
-        <a href="{{route('new.cart',$asset->id)}}" class="btn btn-success">add to cart</a> 
+        <!-- <a href="" class="btn btn-success">add to cart</a> -->
+         <a href="{{route('new.cart',$asset->id)}}" class="btn btn-success">add to cart</a>  
      
         </td>
     </tr>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Asset;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Http\Controllers\AssetController;
+// use App\Http\Controllers\AssetController;
 
 class AssetController extends Controller
 {

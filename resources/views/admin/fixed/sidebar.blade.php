@@ -2,10 +2,10 @@
   @if(auth()->user()->role=='admin')
     <div class="user-profile">
       <div class="user-image">
-        <img src="{{url('Backend/images/faces/face29.png')}}">
+        <img src="{{url('Backend/images/faces/minu.jpg')}}">
       </div>
       <div class="user-name">
-          Syed Alvi Islam Nifaz
+      Mafuza Akter minu
       </div>
       <div class="user-designation">
           Site Admin
@@ -26,6 +26,14 @@
         <a class="nav-link" href="{{route('asset.cart')}}">
           <i class="icon-file menu-icon"></i>
           <span class="menu-title">Asset List</span>
+        </a>
+      </li>
+      @endif
+      @if(auth()->user()->role=='user')
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('my.task')}}">
+          <i class="icon-file menu-icon"></i>
+          <span class="menu-title">My Task</span>
         </a>
       </li>
       @endif
@@ -78,6 +86,23 @@
             <li class="nav-item"> <a class="nav-link" href="{{route('reject.list')}}">Reject Request list</a></li>
         
            
+          </ul>
+        </div>
+      </li>
+      @endif
+      @if(auth()->user()->role=='admin')
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+          <i class="icon-head menu-icon"></i>
+          <span class="menu-title">Task</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-basic">
+          <ul class="nav flex-column sub-menu">
+                 
+      
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.task')}}">Manage Task</a></li>
+    
           </ul>
         </div>
       </li>

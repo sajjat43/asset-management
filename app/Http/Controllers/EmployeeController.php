@@ -6,9 +6,10 @@ use App\Models\User;
 
 use App\Mail\MyTestMail;
 use Illuminate\Http\Request;
+// use App\Models\RequestDetails;
 use App\Models\RequestDetails;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Controllers\EmployeeController;
+// use App\Http\Controllers\EmployeeController;
 
 class EmployeeController extends Controller
 
@@ -76,12 +77,12 @@ class EmployeeController extends Controller
             'image'=>$image_name,
         ]);
         // Mail server
-        $details=[
-            'title'=>'Mail From Matha Vanga Admin',
-            'body'=>'This is testing mail for disturbing you',
-            'credntials'=>'Email:'.$request->email.' and Password:'.$request->password
-        ];
-        Mail::to($request->email)->send(new MyTestMail($details));
+        // $details=[
+        //     'title'=>'Mail From Matha Vanga Admin',
+        //     'body'=>'This is testing mail for disturbing you',
+        //     'credntials'=>'Email:'.$request->email.' and Password:'.$request->password
+        // ];
+        // Mail::to($request->email)->send(new MyTestMail($details));
         return redirect()->back()->with('success', 'Employee Created Successfully');
 }
 //For_single_employee_view

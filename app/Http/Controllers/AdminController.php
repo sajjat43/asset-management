@@ -8,7 +8,7 @@ use App\Models\Asset;
 use App\Models\Report;
 use Illuminate\Http\Request;
 use App\Models\RequestDetails;
-use App\Http\Controllers\AdminController;
+// use App\Http\Controllers\AdminController;
 
 class AdminController extends Controller
 {

@@ -14,7 +14,7 @@ class CartController extends Controller
     public function asset_cart()
     {
         $assetlist = asset::with('Category')->get();
-        return view ('request.assetlist', compact('assetlist'));
+        return view ('Request.assetlist', compact('assetlist'));
        
     }
     // add to cart--------------------------------------------------

@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\RequestAsset;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\RequestDetails;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\RequestController;
+// use App\Http\Controllers\RequestController;
 
 class RequestController extends Controller
 {
@@ -61,13 +62,16 @@ class RequestController extends Controller
         //         ->get();
         //     return view('request.request_list',compact('requests','key'));
         // }
+        // $a=User::all();
         $requests = RequestAsset::with('user')->get();
+        // dd($requests);
         return view('request.request_list',compact('requests'));
     }
 //invoice--------
     public function invoice($id)
 {
 $requests= RequestAsset::with('user','details')->where('id',$id)->first();
+// dd($requests);
 
 return view('request.invoice',compact('requests'));
 }

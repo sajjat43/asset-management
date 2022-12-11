@@ -10,6 +10,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\EmployeeUserController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,9 @@ use App\Http\Controllers\EmployeeUserController;
 */
 
 
+Route::get('/', function(){
+    return view('admin.fixed.login');
+});
 
 
 //admin_Login
@@ -116,4 +120,20 @@ Route::get('/category/create',[CategoryController::class,'asset_category'])->nam
 Route::post('/category/add',[CategoryController::class,'category_create'])->name('category.store');
 Route::get('/asset/category',[CategoryController::class,'categoryList'])->name('category.list');
 Route::get('category/delete/{category_id}', [CategoryController::class, 'deleteCategory'])->name('delete.category');
+
+
+
+// task start 
+Route::get('/task',[TaskController::class,'taskpage'])->name('admin.task');
+Route::get('/task/create',[TaskController::class,'taskCreate'])->name('create.task');
+Route::post('/task/store',[TaskController::class,'taskStore'])->name('task.store');
+
+Route::get('/task/view',[TaskController::class,'taskView'])->name('task.view');
+Route::get('/task/delete/{id}',[TaskController::class,'taskDelete'])->name('task.delete');
+
+Route::get('/my/task',[TaskController::class,'myTask'])->name('my.task');
+Route::get('/my/task/status/{id}',[TaskController::class,'TaskStatus'])->name('my.task.status');
+
+
+
 });
