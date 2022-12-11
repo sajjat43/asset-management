@@ -55,7 +55,12 @@
               <td>{{$item->request->user->name}}</td>
               <td>{{$item->asset->name}}</td>
               <td>{{$item->quantity}}</td>
-              <td>{{$item->status}}</td>
+              @if ($item->status=='approved')
+              <td><p class="text-success"><strong>{{$item->status}}</strong> </p> ({{$item->updated_at}})  </td>
+              @elseif ($item->status=='cancel')
+              <td><p class="text-danger"><strong>{{$item->status}}</strong> </p>({{$item->updated_at}})   </td>
+              @endif
+             
              
               {{-- <td>
               
