@@ -47,7 +47,7 @@
 
                                 <thead>
                                     <tr>
-                                        <th>SL</th>
+                                        {{-- <th>SL</th> --}}
                                         <th>Asset name</th>
 
                                         <th>Quantity</th>
@@ -70,9 +70,10 @@
 
                                     <td>
          
-                                        @if($request->status =='approved')
+                                        @if($request->status =='pending')
                                         <a href="{{route('admin.request.cancel',$request->id)}}" class="btn btn-danger">Cancel</a>
-                                        @elseif($request->status =='pending')
+                                        @endif
+                                        @if($request->status =='pending')
                                         <a href="{{route('admin.request.approve',$request->id)}}" class="btn btn-success">Approve</a>
                                         @endif
                                            
