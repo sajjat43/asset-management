@@ -30,13 +30,17 @@
                 <td>{{$data->date}}</td>
                 <td>
 
-                @if ($data->status == 'Incomplete')
+                @if ($data->status == 'pending')
                      <a href="{{route('my.task.status',$data->id)}}"
                                             class="btn btn-success">Complete</a>
               
                @else
                 {{$data->status}}
-               
+               @endif
+               @if ($data->status == 'pending')
+                     <a href="{{route('my.task.incomplite',$data->id)}}"
+                                            class="btn btn-danger">InComplete</a>
+              
                @endif
                 </td>
               

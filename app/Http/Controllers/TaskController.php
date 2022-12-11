@@ -54,4 +54,13 @@ public function TaskStatus($id)
     ]);
     return redirect()->back()->with('success', 'task Status Change');
 }
+
+public function TaskIncomplite($id){
+    $task = Task::find($id);
+   $task->update([
+        'status' => 'InComplite',
+        'update_date'=>Carbon::now(),
+    ]);
+    return redirect()->back()->with('success', 'task Status Change');
+}
 }

@@ -18,7 +18,7 @@ class CreateTasksTable extends Migration
             $table->foreignId('user_id');
             $table->string('task');
             $table->date('date');
-            $table->string('status')->default('Incomplete');
+            $table->string('status')->default('pending');
             $table->string('update_date')->nullable();
             $table->timestamps();
         });

@@ -133,6 +133,7 @@ Route::get('/task/delete/{id}',[TaskController::class,'taskDelete'])->name('task
 
 Route::get('/my/task',[TaskController::class,'myTask'])->name('my.task');
 Route::get('/my/task/status/{id}',[TaskController::class,'TaskStatus'])->name('my.task.status');
+Route::get('/my/task/cancle/{id}',[TaskController::class,'TaskIncomplite'])->name('my.task.incomplite');
 
 
 
