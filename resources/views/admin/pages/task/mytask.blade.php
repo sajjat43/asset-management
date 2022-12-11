@@ -16,7 +16,7 @@
             
             <th scope="col">Task</th>
             <th scope="col">date</th>
-            <th scope="col">Last Date</th>
+            <th scope="col">Submission Date</th>
             <th scope="col">Action</th>
         </tr>
         </thead>

@@ -43,7 +43,7 @@
                 </div>
                 <div class="row">
                   <div class="col">
-                    <label for="inputEmail4">Last Date </label>
+                    <label for="inputEmail4">Submission Date </label>
                     
                     <input required type="date" id="date" name="date"  class="form-control"/>
                   </div>
