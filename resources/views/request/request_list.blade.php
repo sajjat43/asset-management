@@ -28,6 +28,7 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">User Name</th>
+        <th scope="col">Request Time</th>
         <th scope="col">Status</th>
        
       </tr>
@@ -38,6 +39,7 @@
       <tr>
         <th scope="row">{{$key+1}}</th>
         <td>{{$request->user->name}}</td> 
+        <td>{{$request->created_at}}</td> 
        
         <td>
         

@@ -14,7 +14,7 @@ class CartController extends Controller
     public function asset_cart()
     {
         $assetlist = asset::with('Category')->get();
-        return view ('Request.assetlist', compact('assetlist'));
+        return view ('request.assetlist', compact('assetlist'));
        
     }
     // add to cart--------------------------------------------------
@@ -77,7 +77,7 @@ class CartController extends Controller
 
     {
         $carts = session()->get('cart');
-        return view('Request.cart', compact('carts'));
+        return view('request.cart', compact('carts'));
     }
 
     //Clear_cart--------

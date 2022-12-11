@@ -23,6 +23,7 @@ class RequestController extends Controller
             
             $request=RequestAsset::create([
                 'user_id'=>auth()->user()->id,
+                // 'asset_id'=>$cart['asset_id'],
                 
                 
             ]);
@@ -36,7 +37,7 @@ class RequestController extends Controller
                     'user_id'=>auth()->user()->id,
                     'request_id'=>$request->id,
                     'asset_id'=>$cart['asset_id'],
-                    // 'asset_name'=>$cart['asset_name'],
+                    'asset_name'=>$cart['asset_name'],
                     'quantity'=>$cart['asset_qty'],
                     
                 ]);
@@ -64,6 +65,8 @@ class RequestController extends Controller
         // }
         // $a=User::all();
         $requests = RequestAsset::with('user')->get();
+        // $requests=RequestDetails::where('asset_id',$id)->get();
+        // $requests = RequestAsset::with('user')->get();
         // dd($requests);
         return view('request.request_list',compact('requests'));
     }
@@ -71,7 +74,8 @@ class RequestController extends Controller
     public function invoice($id)
 {
 $requests= RequestAsset::with('user','details')->where('id',$id)->first();
-// dd($requests);
+// $requests=RequestDetails::where('asset_id',$id)->get();
+// dd($requests);  
 
 return view('request.invoice',compact('requests'));
 }

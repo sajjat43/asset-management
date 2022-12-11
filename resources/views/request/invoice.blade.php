@@ -48,6 +48,7 @@
                                 <thead>
                                     <tr>
                                         <th>SL</th>
+                                        <th>Asset name</th>
 
                                         <th>Quantity</th>
                                         <th>Status</th>
@@ -58,6 +59,7 @@
                                 <tbody>
                                     @foreach($requests->details as $key=>$request)
                                     <tr>
+                                        <td>{{$request->asset_name}}</td>
                                    
                                         <td>{{$request->quantity}}</td>
                                         <td>
