@@ -47,7 +47,7 @@
         </div>
         <div class="form-group">
           <label for="exampleFormControlInput1">asset Quantity</label>
-          <input type="number" name="quantity" class="form-control" id="exampleFormControlInput1" placeholder="asset quantity">
+          <input type="number" name="quantity" class="form-control" id="exampleFormControlInput1" placeholder="asset quantity" min="1">
         </div>
       
         <div class="form-group">
