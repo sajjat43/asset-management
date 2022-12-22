@@ -52,7 +52,7 @@
        
         <div class="form-group">
           <label for="exampleFormControlInput1">Asset Quantity</label>
-          <input value="{{$asset->quantity}}" type="number" name="quantity" class="form-control" id="exampleFormControlInput1" placeholder="Asset quantity">
+          <input value="{{$asset->quantity}}" type="number" name="quantity" class="form-control" min="1" id="exampleFormControlInput1" placeholder="Asset quantity">
         </div>
         
         <div class="form-group">
