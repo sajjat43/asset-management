@@ -43,7 +43,7 @@ class AssetController extends Controller
     //Asset_Store---------
     public function AssetStore(Request $request)
     {
-        // dd($request->all());
+        
         //for image upload
         $image_name=null;
         //step 1: check image exist in this request.
@@ -54,7 +54,7 @@ class AssetController extends Controller
              //step 3 : store into project directory
             $request->file('asset_image')->storeAs('/uploads/assets',$image_name);
         }
-        //  dd($request->all());
+        
         $request->validate([
             'id'=>'required',
             'name'=>'required',

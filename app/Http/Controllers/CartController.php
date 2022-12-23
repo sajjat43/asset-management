@@ -44,7 +44,7 @@ class CartController extends Controller
 
             $CartData = [
                 $id => [
-                    // 'user_id'=>$asset->user_id, 
+                
                     'asset_id' => $id,
                     'asset_name' => $asset->name,
                     'asset_qty' => 1,
@@ -53,7 +53,7 @@ class CartController extends Controller
             session()->put('cart', $CartData);
             return redirect()->back()->with('success', 'asset add');
         }
-        // dd(isset($cartExisr[$id]));
+        
         if (!isset($cartExist[$id])) {
           
             $cartExist[$id] = [
