@@ -35,7 +35,7 @@
     </thead>
     <tbody>
       @foreach($requests as $key=>$request)
-    {{-- @dd($request); --}}
+   
       <tr>
         <th scope="row">{{$key+1}}</th>
         <td>{{$request->user->name}}</td> 
